@@ -1,0 +1,23 @@
+{
+  "name": "wp-block-group",
+  "version": "1.0.0",
+  "description": "A block for grouping together other blocks.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "wp-scripts build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chootin/wp-block-group.git"
+  },
+  "author": "Chootin",
+  "license": "GPL-2.0-only",
+  "bugs": {
+    "url": "https://github.com/Chootin/wp-block-group/issues"
+  },
+  "homepage": "https://github.com/Chootin/wp-block-group#readme",
+  "devDependencies": {
+    "@wordpress/scripts": "3.3.0"
+  }
+}
