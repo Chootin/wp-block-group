@@ -17,13 +17,8 @@ registerBlockType( 'blind-mystics/block-group', {
         default: 'none',
       }
     },
-    edit: ( attributes, setAttributes ) => {
-      const { backgroundColor } = attributes;
-
-      const onChangeBackgroundColor = ( newBackgroundColor ) => {
-        setAttributes( { backgroundColor: newBackgroundColor === undefined ? 'initial' : newBackgroundColor } );
-      };
-
+    
+    edit: ( props ) => {
       return (
         <div>
           {
@@ -31,8 +26,10 @@ registerBlockType( 'blind-mystics/block-group', {
               <PanelBody title={ 'Background Color' }>
                 <ColorPalette
                   colors={ [ {name: 'black', color: '#000'}, {name: 'white', color: '#FFF'} ] }
-                  value={ backgroundColor }
-                  onChange={ onChangeBackgroundColor }
+                  value={ props.attributes.backgroundColor }
+                  onChange={ function (color) {
+                    props.setAttributes({ backgroundColor: color });
+                  } }
                 />
               </PanelBody>
             </InspectorControls>
@@ -43,11 +40,21 @@ registerBlockType( 'blind-mystics/block-group', {
         </div>
       );
     },
-    save: ( attributes ) => {
-      const { backgroundColor } = attributes;
+
+    save: ( props ) => {
+      var blockStyle = {
+        backgroundColor: props.attributes.backgroundColor
+      };
 
       return (
-        <div className="wp-block-group"><InnerBlocks.Content /></div>
+        <div style={ blockStyle } className="wp-block-group">
+          <InnerBlocks.Content />
+        </div>
       );
     },
+    deprecated: [
+      {
+        save: () => <div className="wp-block-group"><InnerBlocks.Content /></div>
+      }
+    ]
 });
