@@ -3,7 +3,7 @@
  * Plugin Name: Block Group
  * Description: Adds a block which can group together other blocks.
  * Author: Alec "Chootin" Tutin
- * Version: 1.1.0
+ * Version: 1.2.0
  */
 
  function loadBlockGroup() {
